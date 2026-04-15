@@ -123,9 +123,9 @@ volumes: []
   #     secretName: mysecret
   #     optional: false
 
-volumeMounts: []
+volumeMounts: {}
   # - name: foo
-  #   mountPath: "/etc/foo"
+  #   mountPath: /etc/foo
   #   readOnly: true
 
 nodeSelector: {}

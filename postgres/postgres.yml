@@ -34,14 +34,10 @@ spec:
         image: postgres:15-alpine
         ports:
           - containerPort: 5432
-        env:
-          - name: POSTGRES_DB
-            value: "microservices"
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key: password
+
+        envFrom:
+          - configMapRef:
+              name: postgres-config
         resources:
           limits:
             cpu: "500m"
@@ -60,3 +56,12 @@ spec:
       resources:
         requests:
           storage: 5Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+data:
+  POSTGRES_USER: user
+  POSTGRES_PASSWORD: pass
+  POSTGRES_DB: orders_db
