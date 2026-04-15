@@ -3,7 +3,10 @@ kind: Service
 metadata:
   name: postgres-headless
   labels:
-    app: postgres
+    app: microservice
+    tier: postgres
+    redis: false
+    postgres: false
 spec:
   ports:
     - port: 5432
