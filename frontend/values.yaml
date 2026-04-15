@@ -18,8 +18,11 @@ serviceAccount:
 
 
 podAnnotations: {}
-
-podLabels: {}
+podLabels:
+  app: microservice
+  tier: frontend
+  redis: false
+  postgres: false
 
 podSecurityContext:
    fsGroup: 2000
