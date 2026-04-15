@@ -17,7 +17,8 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
-podLabels: {}
+podLabels:
+  app: order-labels
 
 podSecurityContext:
   fsGroup: 2000
