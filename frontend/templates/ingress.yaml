@@ -24,20 +24,26 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
-      http:
+    - host: ""
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
-            {{- with .pathType }}
-            pathType: {{ . }}
-            {{- end }}
+          - path: /
+            pathType: Prefix
             backend:
               service:
-                name: {{ include "frontend.fullname" $ }}
-                port:
-                  number: {{ $.Values.service.port }}
+                name: frontend-micro
+                port: { number: 80 }
+          - path: /api/orders
+            pathType: Prefix
+            backend:
+              service:
+                name: order-service-shim
+                port: { number: 5000 }
+          - path: /api/products
+            pathType: Prefix
+            backend:
+              service:
+                name: product-service.product-ns.svc.cluster.local
+                port: { number: 3000 }
           {{- end }}
     {{- end }}
 {{- end }}
