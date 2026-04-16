@@ -14,10 +14,13 @@ spec:
   name: order-service-shim
   selector:
     {{- include "frontend.selectorLabels" . | nindent 4 }}
-# kind: Service
-# apiVersion: v1
-# metadata:
-#   namespace: frontend-ns
-# spec:
-#   type: ExternalName
-#   externalName: order-service.order-ns.svc.cluster.local
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: order-service-shim
+  namespace: frontend-ns
+spec:
+  type: ExternalName
+  externalName: order-service.order-ns.svc.cluster.local
