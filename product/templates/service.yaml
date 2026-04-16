@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "product.fullname" . }}
+  name: product-service
   labels:
     {{- include "product.labels" . | nindent 4 }}
 spec:
