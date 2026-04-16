@@ -34,7 +34,6 @@ spec:
         image: postgres:15-alpine
         ports:
           - containerPort: 5432
-
         envFrom:
           - configMapRef:
               name: postgres-config
