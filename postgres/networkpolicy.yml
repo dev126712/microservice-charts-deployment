@@ -1,6 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
+  name: default-deny-ingress
+  namespace: postgres-ns
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
   name: allow-order-to-postgres
   namespace: postgres-ns
 spec:
@@ -17,13 +28,3 @@ spec:
       ports:
         - protocol: TCP
           port: 5432
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny-ingress
-  namespace: postgres-ns
-spec:
-  podSelector: {}
-  policyTypes:
-    - Ingress
