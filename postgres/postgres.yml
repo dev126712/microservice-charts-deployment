@@ -28,8 +28,6 @@ spec:
       labels:
         app: postgres
         tier: postgres
-        redis: false
-        postgres: false
     spec:
       containers:
       - name: postgres
