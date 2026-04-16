@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
   repository: dev126712/micro-notification-service
-  pullPolicy: IfNotPre7c039caf2e80b910694d8ee1b00d6afa5d0d5112sent
-  tag: ""
+  pullPolicy: IfNotPresent
+  tag: "7c039caf2e80b910694d8ee1b00d6afa5d0d5112"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -109,12 +109,12 @@ readinessProbe:
     path: /health
     port: http
 
-# autoscaling:
-#   enabled: true
-#   minReplicas: 1
-#   maxReplicas: 3
-#   targetCPUUtilizationPercentage: 80
-# # targetMemoryUtilizationPercentage: 80
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+# targetMemoryUtilizationPercentage: 80
 
 volumes: []
   # - name: foo
