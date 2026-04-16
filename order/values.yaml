@@ -110,12 +110,12 @@ readinessProbe:
     path: /health
     port: http
 
-# autoscaling:
-#   enabled: true
-#   minReplicas: 1
-#   maxReplicas: 100
-#   targetCPUUtilizationPercentage: 80
-#   # targetMemoryUtilizationPercentage: 80
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
 
 volumes: []
   # - name: foo
