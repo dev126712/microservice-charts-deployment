@@ -24,8 +24,7 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
+    - host: ""
       http:
         paths:
           - path: /              # All UI traffic
