@@ -44,7 +44,6 @@ ingress:
   className: "nginx"
   hosts:
     - host: ""
-      http:
       paths:
       - path: /              # All UI traffic
         pathType: Prefix
