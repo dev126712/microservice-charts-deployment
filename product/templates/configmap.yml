@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: product-service-config
 data:
-  REDIS_HOST="redis-headless.redis-ns.svc.cluster.local"
+  REDIS_HOST: "redis-headless.redis-ns.svc.cluster.local"
