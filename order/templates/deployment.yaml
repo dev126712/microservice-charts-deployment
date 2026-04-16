@@ -40,14 +40,14 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: order-service-config
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           {{- with .Values.livenessProbe }}
-          envFrom:
-            - configMapRef:
-                name: order-service-config
           livenessProbe:
             {{- toYaml . | nindent 12 }}
           {{- end }}
