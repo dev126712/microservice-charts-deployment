@@ -11,9 +11,6 @@ metadata:
   {{- end }}
 spec:
   ingressClassName: "nginx"
-  {{- if .Values.ingress.tls }}
-  tls:
-    {{- range .Values.ingress.tls }}
     - hosts: ""
       secretName: {{ .secretName }}
     {{- end }}
