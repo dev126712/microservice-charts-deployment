@@ -64,9 +64,6 @@ ingress:
           service:
             name: product-service.product-ns.svc.cluster.local
             port: { number: 3000 }
-    # - secretName: chart-example-tls
-    #   hosts:
-    #     - chart-example.local
 
 # -- Expose the service via gateway-api HTTPRoute
 # Requires Gateway API resources and suitable controller installed within the cluster
@@ -115,14 +112,14 @@ resources:
     memory: 128Mi
 
 
-#livenessProbe:
-#  httpGet:
-#    path: /
-#    port: http
-#readinessProbe:
-#  httpGet:
-#    path: /
-#    port: http
+livenessProbe:
+ httpGet:
+   path: /
+   port: http
+readinessProbe:
+ httpGet:
+   path: /
+   port: http
 
 
 autoscaling:
