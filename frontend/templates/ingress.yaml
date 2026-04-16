@@ -13,8 +13,6 @@ spec:
   ingressClassName: "nginx"
     - hosts: ""
       secretName: {{ .secretName }}
-    {{- end }}
-  {{- end }}
   rules:
     - host: ""
         paths:
