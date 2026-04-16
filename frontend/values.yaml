@@ -46,6 +46,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
+      http:
     - host: ""
         paths:
         - path: /              # All UI traffic
