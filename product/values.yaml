@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: dev126712/micro-notification-service
+  repository: dev126712/micro-product-service
   pullPolicy: IfNotPresent
   tag: "7c039caf2e80b910694d8ee1b00d6afa5d0d5112"
 
