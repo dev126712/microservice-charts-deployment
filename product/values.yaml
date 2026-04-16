@@ -46,11 +46,11 @@ resources:
 livenessProbe:
   httpGet:
     path: /health
-    port: http
-readinessProbe:
-  httpGet:
-    path: /health
-    port: http
+    port: 3000
+# readinessProbe:
+#   httpGet:
+#     path: /health
+#     port: http
 
 autoscaling:
   enabled: false
