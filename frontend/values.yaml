@@ -53,7 +53,7 @@ ingress:
         pathType: Prefix
         backend:
           service:
-            name: frontend-service
+            name: frontend-micro
             port: { number: 80 }
       - path: /api/orders    # Route directly to Order Namespace
         pathType: Prefix
