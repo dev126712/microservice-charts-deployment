@@ -39,7 +39,7 @@ spec:
 
         envFrom:
           - configMapRef:
-              name: postgres-config
+            name: postgres-config
         resources:
           limits:
             cpu: "500m"
