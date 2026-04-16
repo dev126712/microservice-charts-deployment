@@ -42,7 +42,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:
-              name: order-service-config
+                name: order-service-config
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
