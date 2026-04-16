@@ -45,24 +45,24 @@ ingress:
   hosts:
     - host: ""
       paths:
-      - path: /              # All UI traffic
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend-micro
-            port: { number: 80 }
-      - path: /api/orders    # Route directly to Order Namespace
-        pathType: Prefix
-        backend:
-          service:
-            name: order-service-shim #order-service.order-ns.svc.cluster.local
-            port: { number: 5000 }
-      - path: /api/products  # Route directly to Product Namespace
-        pathType: Prefix
-        backend:
-          service:
-            name: product-service.product-ns.svc.cluster.local
-            port: { number: 3000 }
+        - path: /              # All UI traffic
+          pathType: Prefix
+          backend:
+            service:
+              name: frontend-micro
+              port: { number: 80 }
+        - path: /api/orders    # Route directly to Order Namespace
+          pathType: Prefix
+          backend:
+            service:
+              name: order-service-shim #order-service.order-ns.svc.cluster.local
+              port: { number: 5000 }
+        - path: /api/products  # Route directly to Product Namespace
+          pathType: Prefix
+          backend:
+            service:
+              name: product-service.product-ns.svc.cluster.local
+              port: { number: 3000 }
 
 # -- Expose the service via gateway-api HTTPRoute
 # Requires Gateway API resources and suitable controller installed within the cluster
