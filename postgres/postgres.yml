@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgres-headless
+  namespace: postgres-ns
   labels:
     app: postgres
 spec:
@@ -15,6 +16,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: postgres
+  namespace: postgres-ns
 spec:
   serviceName: "postgres-headless"
   replicas: 1
@@ -61,6 +63,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-config
+  namespace: postgres-ns
 data:
   POSTGRES_USER: user
   POSTGRES_PASSWORD: pass
