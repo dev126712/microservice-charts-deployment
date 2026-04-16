@@ -136,17 +136,16 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 
-volumes: []
-  # - name: foo
-  #   secret:
-  #     secretName: mysecret
-  #     optional: false
+volumes:
+  - name: nginx-config
+    configMap:
+      name: frontend-nginx-config
 
 
-volumeMounts: []
-  # - name: foo
-  #   mountPath: "/etc/foo"
-  #   readOnly: true
+volumeMounts:
+  - name: nginx-config
+    mountPath: /etc/nginx/conf.d/default.conf
+    subPath: default.conf
 
 nodeSelector: {}
 
