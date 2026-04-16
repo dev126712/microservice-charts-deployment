@@ -46,6 +46,4 @@ spec:
             service:
               name: product-service.product-ns.svc.cluster.local
               port: { number: 3000 }
-          {{- end }}
-    {{- end }}
 {{- end }}
