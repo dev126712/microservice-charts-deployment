@@ -34,16 +34,12 @@ spec:
         image: postgres:15-alpine
         ports:
           - containerPort: 5432
+        env:
+          - name: POSTGRES_PASSWORD
+            value: "pass" # Fallback password
         envFrom:
           - configMapRef:
-              name: postgres-config
-        resources:
-          limits:
-            cpu: "500m"
-            memory: "512Mi"
-          requests:
-            cpu: "250m"
-            memory: "256Mi"
+              name: postgres-config # Fixed Indentation
         volumeMounts:
         - name: pg-data
           mountPath: /var/lib/postgresql/data
@@ -52,9 +48,10 @@ spec:
       name: pg-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      # If this stays 'Pending', change this to 'emptyDir' in the Pod spec
       resources:
         requests:
-          storage: 5Gi
+          storage: 1Gi
 ---
 apiVersion: v1
 kind: ConfigMap
