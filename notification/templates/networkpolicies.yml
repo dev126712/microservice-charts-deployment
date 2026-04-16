@@ -1,6 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
+  name: default-deny-ingress
+  namespace: notification-ns
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
   name: allow-order-to-notification
   namespace: notification-ns 
 spec:
@@ -17,14 +27,3 @@ spec:
       ports:
         - protocol: TCP
           port: 5001
----
-
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny-ingress
-  namespace: notification-ns
-spec:
-  podSelector: {}
-  policyTypes:
-    - Ingress
