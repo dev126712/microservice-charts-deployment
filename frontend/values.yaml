@@ -59,7 +59,7 @@ ingress:
         pathType: Prefix
         backend:
           service:
-            name: order-service.order-ns.svc.cluster.local
+            name: service-micro #order-service.order-ns.svc.cluster.local
             port: { number: 5000 }
       - path: /api/products  # Route directly to Product Namespace
         pathType: Prefix
