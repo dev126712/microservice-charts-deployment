@@ -47,7 +47,6 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
   - host: ""
-    http:
       paths:
       - path: /              # All UI traffic
         pathType: Prefix
