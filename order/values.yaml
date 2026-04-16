@@ -2,7 +2,6 @@ replicaCount: 1
 
 image:
   repository: dev126712/micro-order-service
-  # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   tag: "7c039caf2e80b910694d8ee1b00d6afa5d0d5112"
 
@@ -11,7 +10,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  create: true
+  create: false
   automount: true
   annotations: {}
   name: ""
