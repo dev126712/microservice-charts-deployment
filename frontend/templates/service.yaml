@@ -23,3 +23,12 @@ metadata:
 spec:
   type: ExternalName
   externalName: order-service.order-ns.svc.cluster.local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service-shim
+  namespace: frontend-ns
+spec:
+  type: ExternalName
+  externalName: product-service.product-ns.svc.cluster.local
