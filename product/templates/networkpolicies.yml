@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-order-to-product
+  namespace: product-ns # Applied where the traffic is GOING
+spec:
+  podSelector:
+    matchLabels:
+      tier: product # Targets your Node.js pod
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: order-ns # Only allow from this namespace
+      ports:
+        - protocol: TCP
+          port: 3000 # Product service port
