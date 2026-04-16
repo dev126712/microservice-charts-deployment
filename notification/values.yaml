@@ -19,8 +19,6 @@ podAnnotations: {}
 podLabels:
   app: microservice
   tier: notification
-  redis: false
-  postgres: false
 
 podSecurityContext:
   fsGroup: 2000
