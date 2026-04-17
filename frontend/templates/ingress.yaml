@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: {{ include "frontend.fullname" . }}
 spec:
-  ingressClassName: "nginx"
+  # ingressClassName: "nginx"
   rules:
   - host: ""
     http:
