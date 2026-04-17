@@ -23,15 +23,15 @@ podLabels:
   tier: frontend
 
 podSecurityContext: {}
-   fsGroup: 2000
+   # fsGroup: 2000
 
 securityContext: {}
-  capabilities:
-    drop:
-    - ALL
-  readOnlyRootFilesystem: true
-  runAsNonRoot: false
-  runAsUser: 1000
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: false
+  # runAsUser: 1000
 
 
 service:
