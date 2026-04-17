@@ -2,26 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "order.fullname" . }}
-  labels:
-    {{- include "order.labels" . | nindent 4 }}
+  labels: {{ .Values.podLabels }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
-    matchLabels:
-      {{- include "order.selectorLabels" . | nindent 6 }}
+    matchLabels: {{ .Values.podLabels }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      labels:
-        {{- include "order.labels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+      labels: {{ .Values.podLabels }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
