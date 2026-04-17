@@ -9,6 +9,6 @@ spec:
   selector: {{- include "order.labels" . | nindent 4 }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.port }}
       protocol: TCP
       name: http
