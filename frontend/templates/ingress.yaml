@@ -12,7 +12,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: frontend-micro
+            name: {{ include "frontend.fullname" . }}
             port: { number: 8080 }
       - path: /api/orders
         pathType: Prefix
