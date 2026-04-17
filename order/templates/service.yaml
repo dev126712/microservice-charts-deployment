@@ -6,7 +6,7 @@ metadata:
     {{- include "order.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
-  selector: {{ .Values.podLabels }}
+  selector: {{- include "order.labels" . | nindent 4 }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: http
