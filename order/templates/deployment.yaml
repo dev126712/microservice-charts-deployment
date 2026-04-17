@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "order.fullname" . }}
   labels: 
-    {{ .Values.podLabels }}
+    {{ .Values.podLabels | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
