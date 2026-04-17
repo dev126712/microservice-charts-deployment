@@ -11,7 +11,7 @@ spec:
       targetPort: 8080
       protocol: TCP
       name: http
-  name: order-service-shim
+  #name: order-service-shim
   selector:
     {{- include "frontend.selectorLabels" . | nindent 4 }}
 ---
