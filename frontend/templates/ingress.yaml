@@ -13,7 +13,7 @@ spec:
         backend:
           service:
             name: {{ include "frontend.fullname" . }}
-            port: { number: 8080 }
+            port: {{ $.Values.service.port }}
       - path: /api/orders
         pathType: Prefix
         backend:
