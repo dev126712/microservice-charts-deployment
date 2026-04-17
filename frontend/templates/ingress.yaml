@@ -14,15 +14,15 @@ spec:
           service:
             name: {{ include "frontend.fullname" . }}
             port: {{ $.Values.service.port }}
-      - path: /api/orders
-        pathType: Prefix
-        backend:
-          service:
-            name: order-service-shim
-            port: { number: 5000 }
-      - path: /api/products
-        pathType: Prefix
-        backend:
-          service:
-            name: product-service-shim
-            port: { number: 3000 }
+      # - path: /api/orders
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: order-service-shim
+      #       port: { number: 5000 }
+      # - path: /api/products
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: product-service-shim
+      #       port: { number: 3000 }
