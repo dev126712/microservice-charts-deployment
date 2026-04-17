@@ -29,8 +29,8 @@ securityContext:
   capabilities:
     drop:
     - ALL
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
   runAsUser: 1000
 
 
