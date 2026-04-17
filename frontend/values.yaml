@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: dev126712/micro-frontend
   pullPolicy: IfNotPresent
-  tag: "a15236a9badf1a992f7f669b56cc2281f8ac6872"
+  tag: "274ca6715c3d6e08fc750099f8f3031beb2c638b"
 
 imagePullSecrets: []
 nameOverride: ""
