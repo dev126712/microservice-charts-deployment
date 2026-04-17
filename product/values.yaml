@@ -16,7 +16,9 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
-podLabels: {}
+podLabels:
+app: microservice
+tier: product
 
 podSecurityContext:
   fsGroup: 2000
