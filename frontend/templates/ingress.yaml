@@ -13,7 +13,7 @@ spec:
         backend:
           service:
             name: frontend-micro
-            port: { number: 80 }
+            port: { number: 8080 }
       - path: /api/orders
         pathType: Prefix
         backend:
