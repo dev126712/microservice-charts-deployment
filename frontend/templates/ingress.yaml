@@ -26,11 +26,11 @@ spec:
           service:
             name: order-service-shim
             port:
-              number: { number: 5000 }
+              number: 5000 
       - path: /api/products
         pathType: Prefix
         backend:
           service:
             name: product-service-shim
             port:
-              number: { number: 3000 }
+              number: 3000
