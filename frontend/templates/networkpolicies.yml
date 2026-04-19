@@ -8,66 +8,66 @@
 #   policyTypes:
 #   - Ingress
 #   - Egress
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-ingress-to-frontend
-  namespace: frontend-ns
-spec:
-  podSelector:
-    matchLabels:
-      app: microservice
-      tier: frontend
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - ipBlock:
-        cidr: 130.211.0.0/22
-    - ipBlock:
-        cidr: 35.191.0.0/16
-    - podSelector: {}    
-    ports:
-    - protocol: TCP
-      port: 8080
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-frontend-egress-to-backends
-  namespace: frontend-ns
-spec:
-  podSelector:
-    matchLabels:
-      app: microservice
-      tier: frontend
-  policyTypes:
-  - Egress
-  egress:
-  # Traffic to Order Service
-  - to:
-    - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: order-ns
-    ports:
-    - protocol: TCP
-      port: 5000
-  # Traffic to Product Service
-  - to:
-    - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: product-ns
-    ports:
-    - protocol: TCP
-      port: 3000
-  # Traffic to DNS (Required for FQDN resolution)
-  - to:
-    - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: kube-system
-    ports:
-    - protocol: UDP
-      port: 53
-    - protocol: TCP
-      port: 53
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: NetworkPolicy
+# metadata:
+#   name: allow-ingress-to-frontend
+#   namespace: frontend-ns
+# spec:
+#   podSelector:
+#     matchLabels:
+#       app: microservice
+#       tier: frontend
+#   policyTypes:
+#   - Ingress
+#   ingress:
+#   - from:
+#     - ipBlock:
+#         cidr: 130.211.0.0/22
+#     - ipBlock:
+#         cidr: 35.191.0.0/16
+#     - podSelector: {}    
+#     ports:
+#     - protocol: TCP
+#       port: 8080
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: NetworkPolicy
+# metadata:
+#   name: allow-frontend-egress-to-backends
+#   namespace: frontend-ns
+# spec:
+#   podSelector:
+#     matchLabels:
+#       app: microservice
+#       tier: frontend
+#   policyTypes:
+#   - Egress
+#   egress:
+#   # Traffic to Order Service
+#   - to:
+#     - namespaceSelector:
+#         matchLabels:
+#           kubernetes.io/metadata.name: order-ns
+#     ports:
+#     - protocol: TCP
+#       port: 5000
+#   # Traffic to Product Service
+#   - to:
+#     - namespaceSelector:
+#         matchLabels:
+#           kubernetes.io/metadata.name: product-ns
+#     ports:
+#     - protocol: TCP
+#       port: 3000
+#   # Traffic to DNS (Required for FQDN resolution)
+#   - to:
+#     - namespaceSelector:
+#         matchLabels:
+#           kubernetes.io/metadata.name: kube-system
+#     ports:
+#     - protocol: UDP
+#       port: 53
+#     - protocol: TCP
+#       port: 53
