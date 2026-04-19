@@ -7,8 +7,8 @@ metadata:
     # ingress.gcp.kubernetes.io/pre-shared-cert: "argocd-cert"
     # kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.allow-http: "true"
+    ingressClassName: gce
 spec:
-  ingressClassName: gce
   rules:
   - host: ""
     http:
@@ -18,16 +18,19 @@ spec:
         backend:
           service:
             name: {{ include "frontend.fullname" . }}
-            port: 8080
+            port:
+              number: 8080
       - path: /api/orders
         pathType: Prefix
         backend:
           service:
             name: order-service-shim
-            port: { number: 5000 }
+            port:
+              number: { number: 5000 }
       - path: /api/products
         pathType: Prefix
         backend:
           service:
             name: product-service-shim
-            port: { number: 3000 }
+            port:
+              number: { number: 3000 }
