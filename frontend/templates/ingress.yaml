@@ -2,8 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ include "frontend.fullname" . }}
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "lb-static-ip"
+    # ingress.gcp.kubernetes.io/pre-shared-cert: "argocd-cert"
+    # kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.allow-http: "true"
 spec:
-  ingressClassName: nginx
+  ingressClassName: gce
   rules:
   - host: ""
     http:
