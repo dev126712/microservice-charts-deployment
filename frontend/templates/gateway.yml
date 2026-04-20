@@ -3,8 +3,8 @@ apiVersion: gateway.networking.k8s.io/v1
 metadata:
   name: external-gateway-http
   namespace: default
-  # annotations:
-  #   networking.gke.io/certmap: store-example-com-map
+  annotations:
+    networking.gke.io/certmap: store-example-com-map
 spec:
   # This GatewayClass uses a global external Application Load Balancer.
   gatewayClassName: gke-l7-global-external-managed
