@@ -64,7 +64,7 @@ httpRoute:
   parentRefs:
   - name: gateway
     sectionName: external-gateway-http
-    namespace: default
+    #namespace: default
   # Hostnames matching HTTP header.
   hostnames:
   - chart-example.local
