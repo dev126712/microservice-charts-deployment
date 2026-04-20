@@ -13,7 +13,7 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: 8080
       protocol: TCP
-      name: http
+      # name: http
   #name: order-service-shim
   selector:
     {{- include "frontend.selectorLabels" . | nindent 4 }}
