@@ -54,6 +54,32 @@ livenessProbe:
 #     path: /health
 #     port: http
 
+
+# Requires Gateway API resources and suitable controller installed within the cluster
+# (see: https://gateway-api.sigs.k8s.io/guides/)
+httpRoute:
+  enabled: true
+  annotations: {}
+  # Which Gateways this Route is attached to.
+  parentRefs:
+  - name: gateway
+    sectionName: external-gateway-http
+    namespace: default
+  # Hostnames matching HTTP header.
+  hostnames:
+  - chart-example.local
+  # List of rules and filters applied.
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /api/products/
+    backendRefs:
+    - name: product-service
+      namespace: product-ns
+      port: 3000
+
+
 autoscaling:
   enabled: false
   minReplicas: 1
