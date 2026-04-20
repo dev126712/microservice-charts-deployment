@@ -74,7 +74,7 @@ httpRoute:
         value: /api/orders/
     backendRefs:
     - name: order-service
-      namespace: frontend-ns
+      namespace: order-ns
       port: 5000
   #   filters:
   #   - type: RequestHeaderModifier
