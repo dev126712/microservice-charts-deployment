@@ -11,6 +11,12 @@ spec:
   - name: https
     protocol: HTTPS
     port: 443
+    allowedRoutes:
+      namespaces:
+        from: All 
   - name: http
     protocol: HTTP
     port: 8080
+    allowedRoutes:
+      namespaces:
+        from: All 
