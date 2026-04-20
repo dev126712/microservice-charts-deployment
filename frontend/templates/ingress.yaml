@@ -4,7 +4,7 @@ metadata:
   name: {{ include "frontend.fullname" . }}
   annotations:
     kubernetes.io/ingress.global-static-ip-name: "lb-static-ip"
-    networking.gke.io/v1beta1.backend-config: '{"default": "my-backendconfig"}'
+    networking.gke.io/v1beta1.backend-config: '{"default": "frontend-be-config"}'
     # ingress.gcp.kubernetes.io/pre-shared-cert: "argocd-cert"
     # kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.allow-http: "true"
