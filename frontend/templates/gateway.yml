@@ -4,7 +4,7 @@ metadata:
   name: external-gateway-http
   namespace: default
   annotations:
-    networking.gke.io/certmap: store-example-com-map
+    # networking.gke.io/certmap: store-example-com-map
 spec:
   # This GatewayClass uses a global external Application Load Balancer.
   gatewayClassName: gke-l7-global-external-managed
@@ -17,7 +17,7 @@ spec:
         from: All 
   - name: http
     protocol: HTTP
-    port: 8080
+    port: 80
     allowedRoutes:
       namespaces:
         from: All 
