@@ -2,6 +2,7 @@ kind: Gateway
 apiVersion: gateway.networking.k8s.io/v1
 metadata:
   name: external-gateway-http
+  namespace: default
   annotations:
     networking.gke.io/certmap: store-example-com-map
 spec:
