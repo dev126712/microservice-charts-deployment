@@ -83,7 +83,7 @@ httpRoute:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: frontend-micro
+    - name: frontend-service
       namespace: frontend-ns
       port: 8080
   #   filters:
