@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: notification-micro
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/dev126712/microservice-charts-deployment.git
+    targetRevision: HEAD
+    path: notification
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: notification-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
