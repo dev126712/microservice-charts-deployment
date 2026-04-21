@@ -25,6 +25,9 @@ spec:
         - namespaceSelector:
             matchLabels:
               kubernetes.io/metadata.name: order-ns
+        - namespaceSelector: # ADD THIS BLOCK
+            matchLabels:
+              kubernetes.io/metadata.name: product-ns
       ports:
         - protocol: TCP
           port: 5432
