@@ -69,7 +69,6 @@ httpRoute:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacePrefixMatch: /api/orders # Some versions use this field
               replaceFullPath: /
       backendRefs:
         - name: order-service
@@ -84,7 +83,6 @@ httpRoute:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacePrefixMatch: /api/orders # Some versions use this field
               replaceFullPath: /
       backendRefs:
         - name: order-service
