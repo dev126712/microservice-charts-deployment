@@ -69,7 +69,8 @@ httpRoute:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacement:: /
+              replacePrefixMatch: /api/orders # Some versions use this field
+              replaceFullPath: /
       backendRefs:
         - name: order-service
           namespace: order-ns
@@ -83,7 +84,8 @@ httpRoute:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacement:: /
+              replacePrefixMatch: /api/orders # Some versions use this field
+              replaceFullPath: /
       backendRefs:
         - name: order-service
           namespace: order-ns
