@@ -35,14 +35,17 @@ spec:
         ports:
           - containerPort: 5432
         env:
+          - name: PGDATA
+            value: /var/lib/postgresql/data/pgdata
           - name: POSTGRES_PASSWORD
-            value: "pass" # Fallback password
+            value: "pass"
         envFrom:
           - configMapRef:
               name: postgres-config # Fixed Indentation
         volumeMounts:
         - name: pg-data
           mountPath: /var/lib/postgresql/data
+          subPath: postgres-data
   volumeClaimTemplates:
   - metadata:
       name: pg-data
