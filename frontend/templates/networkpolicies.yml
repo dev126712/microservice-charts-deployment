@@ -21,6 +21,7 @@ spec:
       tier: frontend
   policyTypes:
   - Ingress
+  - Egress
   ingress:
   - from:
     - ipBlock:
