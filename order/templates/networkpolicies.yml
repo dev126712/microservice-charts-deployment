@@ -22,14 +22,14 @@ spec:
     - Egress
   ingress:
     - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: product-ns
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: frontend-ns # Allow Frontend access
-        - ipBlock:
-            cidr: 0.0.0.0/0 # Allow GKE Gateway/External access
+        - namespaceSelector: {}
+        #     matchLabels:
+        #       kubernetes.io/metadata.name: product-ns
+        # - namespaceSelector:
+        #     matchLabels:
+        #       kubernetes.io/metadata.name: frontend-ns # Allow Frontend access
+        # - ipBlock:
+        #     cidr: 0.0.0.0/0 # Allow GKE Gateway/External access
       ports:
         - protocol: TCP
           port: 5000 # Fixed: Matches Order Service port
