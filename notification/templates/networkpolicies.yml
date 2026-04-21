@@ -16,7 +16,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      tier: notification # Targets your Go pod
+      app: notification-service
   policyTypes:
     - Ingress
   ingress:
