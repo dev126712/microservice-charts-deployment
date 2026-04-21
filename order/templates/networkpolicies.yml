@@ -17,7 +17,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: order-service  # Ensure this matches your Order deployment labels
+      app: order-micro # Ensure this matches your Order deployment labels
   policyTypes:
     - Ingress
   ingress:
@@ -27,4 +27,4 @@ spec:
               kubernetes.io/metadata.name: product-ns
       ports:
         - protocol: TCP
-          port: 3000 # Or whatever port your Order service uses
+          port: 5000 # Or whatever port your Order service uses
