@@ -33,3 +33,11 @@ spec:
       ports:
         - protocol: TCP
           port: 5000 # Fixed: Matches Order Service port
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: postgres-ns # CRITICAL: Needed for stats
+      ports:
+        - protocol: TCP
+          port: 5432
