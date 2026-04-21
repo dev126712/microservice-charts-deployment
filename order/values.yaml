@@ -12,9 +12,7 @@ serviceAccount:
   annotations: {}
   name: ""
 podAnnotations: {}
-podLabels:
-  app: order-micro
-  tier: order
+podLabels: {}
 podSecurityContext:
   fsGroup: 2000
 securityContext:
