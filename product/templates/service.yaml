@@ -6,7 +6,7 @@ metadata:
     {{- include "product.selectorLabels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
-  selector: {{ .Values.{{- include "product.selectorLabels" . | nindent 4 }}
+  selector: {{- include "product.selectorLabels" . | nindent 4 }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 3000
