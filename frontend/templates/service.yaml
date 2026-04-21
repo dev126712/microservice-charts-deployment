@@ -7,13 +7,12 @@ metadata:
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
 spec:
-  type: ClusterIP
+  # type: ClusterIP
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 8080
       protocol: TCP
       # name: http
-  #name: order-service-shim
   selector:
     {{- include "frontend.selectorLabels" . | nindent 4 }}
 # ---
