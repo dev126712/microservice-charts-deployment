@@ -33,16 +33,16 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-# livenessProbe:
-#   httpGet:
-#     path: /health
-#     port: 5000
-#   initialDelaySeconds: 30 # Give it 30 seconds to connect to DB
-#   periodSeconds: 10
-# readinessProbe:
-#   httpGet:
-#     path: /health
-#     port: http
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 5000
+  initialDelaySeconds: 30 # Give it 30 seconds to connect to DB
+  periodSeconds: 10
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
 
 # Requires Gateway API resources and suitable controller installed within the cluster
 # (see: https://gateway-api.sigs.k8s.io/guides/)
