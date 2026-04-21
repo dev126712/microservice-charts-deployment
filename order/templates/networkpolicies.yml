@@ -7,3 +7,24 @@ spec:
   podSelector: {}
   policyTypes:
     - Ingress
+---
+# Add this to your networkpolicy.yml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-product-to-order
+  namespace: order-ns
+spec:
+  podSelector:
+    matchLabels:
+      app: order-service  # Ensure this matches your Order deployment labels
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: product-ns
+      ports:
+        - protocol: TCP
+          port: 3000 # Or whatever port your Order service uses
