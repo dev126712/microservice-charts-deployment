@@ -24,7 +24,8 @@ spec:
     - from:
         - namespaceSelector:
             matchLabels:
-              kubernetes.io/metadata.name: product-ns
+              kubernetes.io/metadata.name: gateway-system
+              # kubernetes.io/metadata.name: product-ns
       ports:
         - protocol: TCP
           port: 5000 # Or whatever port your Order service uses
