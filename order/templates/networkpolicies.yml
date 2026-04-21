@@ -7,34 +7,28 @@ spec:
   podSelector: {}
   policyTypes:
     - Ingress
-  ingress:
-    - from:
-        - ipBlock:
-            cidr: 0.0.0.0/0 # Allows the GKE Load Balancer/Gateway to reach the pod
-      ports:
-        - protocol: TCP
-          port: 5000
 ---
-# Add this to your networkpolicy.yml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-product-to-order
+  name: allow-ingress-to-order
   namespace: order-ns
 spec:
   podSelector:
     matchLabels:
-      app: order-micro # Ensure this matches your Order deployment labels
+      app: order-micro # Fixed: Matches your Deployment/Service label
   policyTypes:
     - Ingress
   ingress:
     - from:
-      - namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: product-ns
-      - namespaceSelector: # ADD THIS BLOCK
-          matchLabels:
-            kubernetes.io/metadata.name: frontend-ns
-    ports:
-      - protocol: TCP
-        port: 5000
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: product-ns
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: frontend-ns # Allow Frontend access
+        - ipBlock:
+            cidr: 0.0.0.0/0 # Allow GKE Gateway/External access
+      ports:
+        - protocol: TCP
+          port: 5000 # Fixed: Matches Order Service port
