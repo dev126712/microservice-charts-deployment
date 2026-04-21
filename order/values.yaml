@@ -13,7 +13,7 @@ serviceAccount:
   name: ""
 podAnnotations: {}
 podLabels:
-  app: microservice
+  app: order-micro
   tier: order
 podSecurityContext:
   fsGroup: 2000
