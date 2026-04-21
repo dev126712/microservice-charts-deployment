@@ -1,50 +1,40 @@
 replicaCount: 1
-
 image:
   repository: dev126712/micro-product-service
   pullPolicy: IfNotPresent
-  tag: "7c039caf2e80b910694d8ee1b00d6afa5d0d5112"
-
+  tag: "f02f5f870f3b866d031c5b6a98ce3f824f118385"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: false
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
 podLabels:
 app: microservice
 tier: product
-
 podSecurityContext:
   fsGroup: 2000
-
 securityContext:
   capabilities:
     drop:
-    - ALL
+      - ALL
   readOnlyRootFilesystem: true
   runAsNonRoot: true
   runAsUser: 1000
-
 service:
   type: ClusterIP
   port: 3000
   targetPort: 3000
-
-
 resources:
-   limits:
-     cpu: 100m
-     memory: 128Mi
-   requests:
-     cpu: 100m
-     memory: 128Mi
-
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 livenessProbe:
   httpGet:
     path: /health
@@ -54,7 +44,6 @@ livenessProbe:
 #     path: /health
 #     port: http
 
-
 # Requires Gateway API resources and suitable controller installed within the cluster
 # (see: https://gateway-api.sigs.k8s.io/guides/)
 httpRoute:
@@ -62,43 +51,38 @@ httpRoute:
   annotations: {}
   # Which Gateways this Route is attached to.
   parentRefs:
-  - name: external-gateway-http
-    sectionName: http
-    #namespace: default
+    - name: external-gateway-http
+      sectionName: http
+      #namespace: default
   # Hostnames matching HTTP header.
   hostnames: []
   # List of rules and filters applied.
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /api/products/
-    backendRefs:
-    - name: product-service
-      namespace: product-ns
-      port: 3000
-
-
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/products/
+      backendRefs:
+        - name: product-service
+          namespace: product-ns
+          port: 3000
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 3
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-
 volumes: []
-  # - name: foo
-  #   secret:
-  #     secretName: mysecret
-  #     optional: false
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
 
 volumeMounts: []
-  # - name: foo
-  #   mountPath: "/etc/foo"
-  #   readOnly: true
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
