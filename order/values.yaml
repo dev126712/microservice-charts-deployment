@@ -68,8 +68,8 @@ httpRoute:
         - type: URLRewrite
           urlRewrite:
             path:
-              type: ReplaceFullPath
-              replaceFullPath: /
+              type: ReplaceFullPathMatch
+              replaceFullPathMatch: /
       backendRefs:
         - name: order-service
           namespace: order-ns
@@ -82,8 +82,8 @@ httpRoute:
         - type: URLRewrite
           urlRewrite:
             path:
-              type: ReplaceFullPath
-              replaceFullPath: /
+              type: ReplaceFullPathMatch
+              replaceFullPathMatch: /
       backendRefs:
         - name: order-service
           namespace: order-ns
