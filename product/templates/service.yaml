@@ -9,6 +9,5 @@ spec:
   selector: {{ .Values.podLabels }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: 3000
       protocol: TCP
-      name: http
