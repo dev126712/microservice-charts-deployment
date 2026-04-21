@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: dev126712/micro-frontend
   pullPolicy: IfNotPresent
-  tag: "f0152f4329bddf9a0a67c42203e0d601bfdfe2fe"
+  tag: "db2b31c54d7363a59ed9676bb10594b8685a9deb"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -75,21 +75,21 @@ httpRoute:
         - name: frontend-service
           namespace: frontend-ns
           port: 8080
-  #   filters:
-  #   - type: RequestHeaderModifier
-  #     requestHeaderModifier:
-  #       set:
-  #       - name: My-Overwrite-Header
-  #         value: this-is-the-only-value
-  #       remove:
-  #       - User-Agent
-  # - matches:
-  #   - path:
-  #       type: PathPrefix
-  #       value: /echo
-  #     headers:
-  #     - name: version
-  #       value: v2
+          #   filters:
+          #   - type: RequestHeaderModifier
+          #     requestHeaderModifier:
+          #       set:
+          #       - name: My-Overwrite-Header
+          #         value: this-is-the-only-value
+          #       remove:
+          #       - User-Agent
+          # - matches:
+          #   - path:
+          #       type: PathPrefix
+          #       value: /echo
+          #     headers:
+          #     - name: version
+          #       value: v2
 resources:
   limits:
     cpu: 100m
