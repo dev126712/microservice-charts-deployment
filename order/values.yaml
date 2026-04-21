@@ -72,6 +72,20 @@ httpRoute:
         - name: order-service
           namespace: order-ns
           port: 5000
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/orders/stats
+      # filters:
+      #   - type: URLRewrite
+      #     urlRewrite:
+      #       path:
+      #         type: ReplacePrefixMatch
+      #         replacePrefix: /
+      backendRefs:
+        - name: order-service
+          namespace: order-ns
+          port: 5000
   #   filters:
   #   - type: RequestHeaderModifier
   #     requestHeaderModifier:
