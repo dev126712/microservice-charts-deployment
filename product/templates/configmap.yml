@@ -7,3 +7,4 @@ data:
   REDIS_HOST: "redis-headless.redis-ns.svc.cluster.local"
   PRODUCT_SERVICE_URL: "http://product-service.product-ns:3000"
   NOTIFICATION_SERVICE_URL: "http://notification-service.notification-ns:5001"
+  ORDER_SERVICE_URL: "http://order-micro.order-ns:5000"
