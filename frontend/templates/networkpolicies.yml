@@ -45,6 +45,11 @@ spec:
   policyTypes:
   - Egress
   egress:
+  - to:
+    - namespaceSelector: {} # Allow outgoing to all namespaces for testing
+    ports:
+    - protocol: TCP
+      port: 5000
   # Traffic to Order Service
   - to:
     - namespaceSelector:
