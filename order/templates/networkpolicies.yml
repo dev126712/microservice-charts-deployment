@@ -29,10 +29,12 @@ spec:
     - Ingress
   ingress:
     - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: gateway-system
-              # kubernetes.io/metadata.name: product-ns
-      ports:
-        - protocol: TCP
-          port: 5000 # Or whatever port your Order service uses
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: product-ns
+      - namespaceSelector: # ADD THIS BLOCK
+          matchLabels:
+            kubernetes.io/metadata.name: frontend-ns
+    ports:
+      - protocol: TCP
+        port: 5000
