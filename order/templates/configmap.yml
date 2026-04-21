@@ -3,6 +3,10 @@ kind: ConfigMap
 metadata:
   name: order-service-config
 data:
-  DATABASE_URL: "postgresql://user:pass@postgres-headless.postgres-ns.svc.cluster.local:5432/orders_db"
-  PRODUCT_SERVICE_URL: "http://product-service.product-ns.svc.cluster.local:3000"
-  NOTIFICATION_SERVICE_URL: "http://notification-service.notification-ns.svc.cluster.local:5001"
+  # DATABASE_URL: "postgresql://user:pass@postgres-headless.postgres-ns.svc.cluster.local:5432/orders_db"
+  # PRODUCT_SERVICE_URL: "http://product-service.product-ns.svc.cluster.local:3000"
+  # NOTIFICATION_SERVICE_URL: "http://notification-service.notification-ns.svc.cluster.local:5001"
+  PRODUCT_SERVICE_URL: "http://product-service.product-ns:3000"
+  # Add this! If this is missing or wrong, Orders stay at 0.
+  NOTIFICATION_SERVICE_URL: "http://notification-service.notification-ns:5001"
+  DATABASE_URL: "postgresql://user:pass@postgres-service.postgres-ns:5432/orders_db"
