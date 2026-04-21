@@ -1,49 +1,40 @@
 replicaCount: 1
-
 image:
   repository: dev126712/micro-notification-service
   pullPolicy: IfNotPresent
-  tag: "7c039caf2e80b910694d8ee1b00d6afa5d0d5112"
-
+  tag: "ba6fa160a9598f3214e19b7468ca3f2428900d89"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: false
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
 podLabels:
   app: microservice
   tier: notification
-
 podSecurityContext:
   fsGroup: 2000
-
 securityContext:
   capabilities:
     drop:
-    - ALL
+      - ALL
   readOnlyRootFilesystem: true
   runAsNonRoot: true
   runAsUser: 1000
-
 service:
   type: ClusterIP
   port: 5001
   targetPort: 5001
-
-resources: 
+resources:
   limits:
     cpu: 100m
     memory: 128Mi
   requests:
     cpu: 100m
     memory: 128Mi
-
 livenessProbe:
   httpGet:
     path: /health
@@ -61,18 +52,16 @@ autoscaling:
 # targetMemoryUtilizationPercentage: 80
 
 volumes: []
-  # - name: foo
-  #   secret:
-  #     secretName: mysecret
-  #     optional: false
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
 
 volumeMounts: []
-  # - name: foo
-  #   mountPath: "/etc/foo"
-  #   readOnly: true
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
