@@ -82,8 +82,8 @@ httpRoute:
         - type: URLRewrite
           urlRewrite:
             path:
-              type: ReplaceFullPathMatch
-              replaceFullPathMatch: /
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
       backendRefs:
         - name: order-service
           namespace: order-ns
