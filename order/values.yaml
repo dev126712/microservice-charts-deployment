@@ -1,49 +1,40 @@
 replicaCount: 1
-
 image:
   repository: dev126712/micro-order-service
   pullPolicy: IfNotPresent
-  tag: "72613b4c3a9c3a3314e8aa206f1856a26ddfdccf"
-
+  tag: "d64fe7e8f40245711c817b8104462e0ded8034ae"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: false
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
 podLabels:
   app: microservice
   tier: order
-
 podSecurityContext:
   fsGroup: 2000
-
 securityContext:
   capabilities:
-   drop:
-   - ALL
+    drop:
+      - ALL
   readOnlyRootFilesystem: true
   runAsNonRoot: true
   runAsUser: 1000
-
 service:
   type: ClusterIP
   port: 5000
   targetPort: 5000
-
 resources:
-   limits:
-     cpu: 100m
-     memory: 128Mi
-   requests:
-     cpu: 100m
-     memory: 128Mi
-
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 livenessProbe:
   httpGet:
     path: /health
@@ -53,7 +44,6 @@ livenessProbe:
 #     path: /health
 #     port: http
 
-
 # Requires Gateway API resources and suitable controller installed within the cluster
 # (see: https://gateway-api.sigs.k8s.io/guides/)
 httpRoute:
@@ -61,21 +51,21 @@ httpRoute:
   annotations: {}
   # Which Gateways this Route is attached to.
   parentRefs:
-  - name: external-gateway-http
-    sectionName: http
-    namespace: default
+    - name: external-gateway-http
+      sectionName: http
+      namespace: default
   # Hostnames matching HTTP header.
   hostnames: []
   # List of rules and filters applied.
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /api/orders/
-    backendRefs:
-    - name: order-service
-      namespace: order-ns
-      port: 5000
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/orders/
+      backendRefs:
+        - name: order-service
+          namespace: order-ns
+          port: 5000
   #   filters:
   #   - type: RequestHeaderModifier
   #     requestHeaderModifier:
@@ -91,28 +81,23 @@ httpRoute:
   #     headers:
   #     - name: version
   #       value: v2
-
-
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-
 volumes: []
-  # - name: foo
-  #   secret:
-  #     secretName: mysecret
-  #     optional: false
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
 
 volumeMounts: {}
-  # - name: foo
-  #   mountPath: /etc/foo
-  #   readOnly: true
+# - name: foo
+#   mountPath: /etc/foo
+#   readOnly: true
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
