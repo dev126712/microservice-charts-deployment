@@ -69,7 +69,7 @@ httpRoute:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacePrefix: /
+              replacement:: /
       backendRefs:
         - name: order-service
           namespace: order-ns
@@ -83,7 +83,7 @@ httpRoute:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacePrefix: /
+              replacement:: /
       backendRefs:
         - name: order-service
           namespace: order-ns
