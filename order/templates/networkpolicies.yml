@@ -19,6 +19,7 @@ spec:
       app: order-micro # Fixed: Matches your Deployment/Service label
   policyTypes:
     - Ingress
+    - Egress
   ingress:
     - from:
         - namespaceSelector:
