@@ -32,10 +32,12 @@
   - StatfulSet
   - Service
   - Configmap
+  - Network Policies
 - Redis:
   - StatefulSet
   - Service
   - Configmap
+  - Network Policies
 
 
 
