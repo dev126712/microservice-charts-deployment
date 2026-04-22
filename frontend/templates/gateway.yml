@@ -4,7 +4,7 @@ metadata:
   name: external-gateway-http
   namespace: default
   annotations:
-    networking.gke.io/static-ip: lb-static-ip
+    #networking.gke.io/static-ip: lb-static-ip
 spec:
   # This GatewayClass uses a global external Application Load Balancer.
   gatewayClassName: gke-l7-global-external-managed
