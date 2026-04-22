@@ -1,5 +1,5 @@
 #### Application Helm Charts
-  Frontend:
+- Frontend:
   - Gateway ( Defaulf Namespace )
   - Deplorment
   - Service
@@ -7,33 +7,33 @@
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-  Product:
+- Product:
   - Deplorment
   - Service
   - Network Policies
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-  Notification:
+- Notification:
   - Deplorment
   - Service
   - Network Policies
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-  Order:
+- Order:
   - Deplorment
   - Service
   - Network Policies
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-  Postgres:
+- Postgres:
   - StatfulSet
   - Service
   - Configmap
   - Network Policies
-  Redis:
+- Redis:
   - StatefulSet
   - Service
   - Configmap
