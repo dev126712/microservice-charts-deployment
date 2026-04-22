@@ -70,7 +70,7 @@ httpRoute:
               type: ReplacePrefixMatch
               replacePrefixMatch: /
       backendRefs:
-        - name: order-service
+        - name: {{ include "order.fullname" . }}
           namespace: order-ns
           port: 5000
     - matches:
