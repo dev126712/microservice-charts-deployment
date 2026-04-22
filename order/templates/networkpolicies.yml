@@ -1,43 +1,43 @@
-# apiVersion: networking.k8s.io/v1
-# kind: NetworkPolicy
-# metadata:
-#   name: default-deny-ingress
-#   namespace: order-ns
-# spec:
-#   podSelector: {}
-#   policyTypes:
-#     - Ingress
-# ---
-# apiVersion: networking.k8s.io/v1
-# kind: NetworkPolicy
-# metadata:
-#   name: allow-ingress-to-order
-#   namespace: order-ns
-# spec:
-#   podSelector:
-#     matchLabels:
-#       app: order-micro # Fixed: Matches your Deployment/Service label
-#   policyTypes:
-#     - Ingress
-#     - Egress
-#   ingress:
-#     - from:
-#         - namespaceSelector: {}
-#         #     matchLabels:
-#         #       kubernetes.io/metadata.name: product-ns
-#         # - namespaceSelector:
-#         #     matchLabels:
-#         #       kubernetes.io/metadata.name: frontend-ns # Allow Frontend access
-#         # - ipBlock:
-#         #     cidr: 0.0.0.0/0 # Allow GKE Gateway/External access
-#       ports:
-#         - protocol: TCP
-#           port: 5000 # Fixed: Matches Order Service port
-#   egress:
-#     - to:
-#         - namespaceSelector: {}
-#             # matchLabels:
-#             #   kubernetes.io/metadata.name: postgres-ns # CRITICAL: Needed for stats
-#       ports:
-#         - protocol: TCP
-#           port: 5432
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+  namespace: order-ns
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-to-order
+  namespace: order-ns
+spec:
+  podSelector:
+    matchLabels:
+      app: order-micro # Fixed: Matches your Deployment/Service label
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - namespaceSelector: {}
+        #     matchLabels:
+        #       kubernetes.io/metadata.name: product-ns
+        # - namespaceSelector:
+        #     matchLabels:
+        #       kubernetes.io/metadata.name: frontend-ns # Allow Frontend access
+        # - ipBlock:
+        #     cidr: 0.0.0.0/0 # Allow GKE Gateway/External access
+      ports:
+        - protocol: TCP
+          port: 5000 # Fixed: Matches Order Service port
+  egress:
+    - to:
+        - namespaceSelector: {}
+            # matchLabels:
+            #   kubernetes.io/metadata.name: postgres-ns # CRITICAL: Needed for stats
+      ports:
+        - protocol: TCP
+          port: 5432
