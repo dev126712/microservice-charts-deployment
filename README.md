@@ -29,11 +29,11 @@
   - ConfigMap
   - HTTP Route
 - Postgres:
-  - Deployment
+  - StatfulSet
   - Service
   - Configmap
 - Redis:
-  - Deployment
+  - StatefulSet
   - Service
   - Configmap
 
