@@ -43,7 +43,7 @@ readinessProbe:
   httpGet:
     path: /health
     port: 5000 # Use numeric port
-  initialDelaySeconds: 5 # Give the DB loop some time
+  initialDelaySeconds: 25 # Give the DB loop some time
   periodSeconds: 10
 # Requires Gateway API resources and suitable controller installed within the cluster
 # (see: https://gateway-api.sigs.k8s.io/guides/)
