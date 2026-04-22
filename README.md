@@ -1,5 +1,5 @@
 #### Application Helm Charts
-- Frontend "Frontend Namespace(From ArgoCD Application)":
+- Frontend "Frontend Namespace (From ArgoCD Application)":
   - Gateway ( Defaulf Namespace )
   - Deplorment
   - Service
@@ -7,33 +7,33 @@
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-- Product "Product Namespace(From ArgoCD Application)":
+- Product "Product Namespace (From ArgoCD Application)":
   - Deplorment
   - Service
   - Network Policies
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-- Notification "Norification Namespace(From ArgoCD Application)":
+- Notification "Norification Namespace From ArgoCD Application)":
   - Deplorment
   - Service
   - Network Policies
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-- Order "Order Namespace(From ArgoCD Application)":
+- Order "Order Namespace (From ArgoCD Application)":
   - Deplorment
   - Service
   - Network Policies
   - Honrizontal scalling
   - ConfigMap
   - HTTP Route
-- Postgres "Postgres Namespace(From ArgoCD Application)":
+- Postgres "Postgres Namespace (From ArgoCD Application)":
   - StatfulSet
   - Service
   - Configmap
   - Network Policies
-- Redis "Redis Namespace(From ArgoCD Application)":
+- Redis "Redis Namespace (From ArgoCD Application)":
   - StatefulSet
   - Service
   - Configmap
