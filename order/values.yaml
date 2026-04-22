@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: dev126712/micro-order-service
   pullPolicy: IfNotPresent
-  tag: "b31b102a18e1c3490d2657fbda3b697800b645b3"
+  tag: "c74ba1deca9e83c6994382d1ffa04c6483a8455e"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
