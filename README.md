@@ -1,6 +1,5 @@
 #### Application Helm Charts
 - Frontend "Frontend Namespace (From ArgoCD Application)":
-  - Gateway ( Defaulf Namespace )
   - Deplorment
   - Service
   - Network Policies
