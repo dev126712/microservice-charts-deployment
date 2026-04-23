@@ -10,6 +10,7 @@ spec:
     targetRevision: 0.22.1 # Always pin your version
     chart: victoria-metrics-k8s-stack
     helm:
+      kubeVersion: "1.29.0"
       values: |
         grafana:
           enabled: true
