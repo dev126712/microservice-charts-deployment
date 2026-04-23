@@ -11,16 +11,21 @@ spec:
     chart: victoria-metrics-k8s-stack
     helm:
       values: |
-        # This part installs Grafana and sets up the dashboards automatically
         grafana:
           enabled: true
-        # Node exporter runs on every node to get CPU/RAM stats
+
         prometheus-node-exporter:
           enabled: true
-        # VictoriaMetrics handles the storage (faster/lighter than Prometheus)
+
         vmsingle:
           enabled: true
           retentionPeriod: 14d
+
+        vlogs:
+          enabled: true
+
+        fluent-bit:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
