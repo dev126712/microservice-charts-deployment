@@ -10,7 +10,6 @@ spec:
     targetRevision: 0.22.1 # Always pin your version
     chart: victoria-metrics-k8s-stack
     helm:
-      kubeVersion: "1.35.0"
       values: |
         grafana:
           enabled: true
@@ -41,6 +40,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Validate=false
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
