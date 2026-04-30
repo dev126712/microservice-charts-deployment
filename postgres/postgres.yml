@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
     - port: 5432
-  clusterIP: None # Defines this as a Headless Service
+  clusterIP: None
   selector:
     app: postgres
 ---
@@ -53,7 +53,6 @@ spec:
       name: pg-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      # If this stays 'Pending', change this to 'emptyDir' in the Pod spec
       resources:
         requests:
           storage: 1Gi
