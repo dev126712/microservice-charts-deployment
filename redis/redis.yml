@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-headless # Change this
+  name: redis-headless
   namespace: redis-ns
 spec:
-  clusterIP: None      # Headless service
+  clusterIP: None
   selector:
-    app: redis         # Ensure this matches your Redis pod labels
+    app: redis
   ports:
     - port: 6379
       targetPort: 6379
