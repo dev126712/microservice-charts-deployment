@@ -5,6 +5,8 @@ metadata:
   namespace: postgres-ns
   labels:
     app: postgres
+    backstage.io/kubernetes-id: postgres-service
+    
 spec:
   ports:
     - port: 5432
