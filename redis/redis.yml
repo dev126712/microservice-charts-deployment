@@ -21,6 +21,7 @@ spec:
   selector:
     matchLabels:
       app: redis
+    backstage.io/kubernetes-id: redis-service
   template:
     metadata:
       labels:
