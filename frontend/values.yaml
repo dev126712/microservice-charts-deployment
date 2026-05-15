@@ -15,6 +15,7 @@ podAnnotations: {}
 podLabels:
   app: microservice
   tier: frontend
+  backstage.io/kubernetes-id: frontend-service
 # podSecurityContext: {}
 #    # fsGroup: 2000
 securityContext:
