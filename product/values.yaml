@@ -15,6 +15,8 @@ podAnnotations: {}
 podLabels:
 app: microservice
 tier: product
+backstage.io/kubernetes-id: product-service
+
 podSecurityContext:
   fsGroup: 2000
 securityContext:
