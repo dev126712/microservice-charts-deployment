@@ -15,6 +15,7 @@ podAnnotations: {}
 podLabels:
   app: microservice
   tier: notification
+  backstage.io/kubernetes-id: notification-service
 podSecurityContext:
   fsGroup: 2000
 securityContext:
