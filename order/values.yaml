@@ -12,7 +12,9 @@ serviceAccount:
   annotations: {}
   name: ""
 podAnnotations: {}
-podLabels: {}
+podLabels:
+  backstage.io/kubernetes-id: order-service
+  
 # podSecurityContext:
 #   fsGroup: 2000
 # securityContext:
