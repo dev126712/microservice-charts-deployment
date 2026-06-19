@@ -12,19 +12,18 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-order-to-notification
-  namespace: notification-ns 
+  namespace: notification-ns
 spec:
   podSelector:
     matchLabels:
       app: microservice
   policyTypes:
     - Ingress
-    - Egress
   ingress:
     - from:
         - namespaceSelector:
             matchLabels:
-              kubernetes.io/metadata.name: order-ns 
+              kubernetes.io/metadata.name: order-ns
       ports:
         - protocol: TCP
           port: 5001
@@ -34,5 +33,4 @@ spec:
               kubernetes.io/metadata.name: aiops
       ports:
         - protocol: TCP
-          port: 8000
-  egress: {}
+          port: 5001   # ← was 8000, must match notification service port
